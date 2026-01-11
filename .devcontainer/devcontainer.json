@@ -1,0 +1,22 @@
+{
+  "name": "WordPress DevOps",
+  "image": "mcr.microsoft.com/devcontainers/base:bullseye",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+  },
+  "forwardPorts": [8080],
+  "portsAttributes": {
+    "8080": {
+      "label": "WordPress",
+      "onAutoForward": "openBrowser"
+    }
+  },
+  "postStartCommand": "bash -c 'sleep 10 && cd /workspaces/novaStudioTest && docker compose up -d' || echo 'Docker starting...'",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-azuretools.vscode-docker"
+      ]
+    }
+  }
+}

@@ -1,0 +1,470 @@
+/**
+ * Nova Studio - UX Enhancements Styles
+ * Unified Design System Components
+ */
+
+/* =============================================
+   SCROLL PROGRESS BAR
+   ============================================= */
+#nova-scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--nova-primary, #2563EB) 0%, var(--nova-accent, #F59E0B) 100%);
+    width: 0%;
+    z-index: 10000;
+    transition: width 0.1s ease-out;
+    border-radius: 0 2px 2px 0;
+}
+
+/* =============================================
+   BACK TO TOP BUTTON
+   ============================================= */
+#nova-back-to-top {
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    width: 48px;
+    height: 48px;
+    background: var(--nova-primary, #2563EB);
+    color: var(--nova-white, #fff);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 999;
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+    overflow: hidden;
+}
+
+#nova-back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+#nova-back-to-top:hover {
+    background: var(--nova-primary-dark, #1D4ED8);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+}
+
+#nova-back-to-top:active {
+    transform: translateY(-1px);
+}
+
+#nova-back-to-top svg {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+}
+
+/* =============================================
+   WHATSAPP FLOATING BUTTON
+   ============================================= */
+#nova-whatsapp-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 56px;
+    height: 56px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.8);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    overflow: hidden;
+}
+
+#nova-whatsapp-btn.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+}
+
+#nova-whatsapp-btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 6px 25px rgba(37, 211, 102, 0.5);
+    background: #22c55e;
+}
+
+#nova-whatsapp-btn.pulse {
+    animation: whatsappPulse 1s ease;
+}
+
+@keyframes whatsappPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.12); }
+}
+
+#nova-whatsapp-btn svg {
+    width: 28px;
+    height: 28px;
+    fill: #fff;
+    flex-shrink: 0;
+}
+
+#nova-whatsapp-btn .nova-wa-tooltip {
+    position: absolute;
+    right: calc(100% + 12px);
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--nova-white, #fff);
+    color: var(--nova-dark, #0F172A);
+    padding: 10px 16px;
+    border-radius: var(--nova-radius-md, 8px);
+    font-size: 13px;
+    font-weight: 500;
+    white-space: nowrap;
+    box-shadow: var(--nova-shadow-lg, 0 10px 15px -3px rgba(0, 0, 0, 0.1));
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+#nova-whatsapp-btn:hover .nova-wa-tooltip {
+    opacity: 1;
+    visibility: visible;
+}
+
+#nova-whatsapp-btn .nova-wa-tooltip::after {
+    content: '';
+    position: absolute;
+    right: -6px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 6px solid transparent;
+    border-left-color: var(--nova-white, #fff);
+}
+
+/* =============================================
+   EXIT INTENT POPUP
+   ============================================= */
+#nova-exit-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+#nova-exit-popup.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.nova-popup-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+}
+
+.nova-popup-content {
+    position: relative;
+    background: #fff;
+    border-radius: 16px;
+    max-width: 500px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    transform: scale(0.9) translateY(20px);
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+#nova-exit-popup.active .nova-popup-content {
+    transform: scale(1) translateY(0);
+}
+
+.nova-popup-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 36px;
+    height: 36px;
+    background: var(--nova-gray-100);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    z-index: 10;
+}
+
+.nova-popup-close:hover {
+    background: var(--nova-gray-200);
+}
+
+.nova-popup-close svg {
+    width: 20px;
+    height: 20px;
+    color: var(--nova-gray-600);
+}
+
+.nova-popup-header {
+    text-align: center;
+    padding: 40px 30px 20px;
+}
+
+.nova-popup-header .nova-popup-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, var(--nova-primary) 0%, var(--nova-accent) 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+}
+
+.nova-popup-header .nova-popup-icon svg {
+    width: 36px;
+    height: 36px;
+    color: #fff;
+}
+
+.nova-popup-header h3 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--nova-dark);
+    margin: 0 0 10px;
+    line-height: 1.3;
+}
+
+.nova-popup-header p {
+    color: var(--nova-gray-600);
+    font-size: 1rem;
+    margin: 0;
+}
+
+.nova-popup-body {
+    padding: 0 30px 30px;
+}
+
+.nova-popup-offer {
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(245, 158, 11, 0.05) 100%);
+    border: 1px dashed var(--nova-primary);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.nova-popup-offer strong {
+    display: block;
+    font-size: 1.25rem;
+    color: var(--nova-primary);
+    margin-bottom: 5px;
+}
+
+.nova-popup-offer span {
+    color: var(--nova-gray-600);
+    font-size: 0.875rem;
+}
+
+/* =============================================
+   ANIMATED COUNTERS
+   ============================================= */
+.nova-counter {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+}
+
+.nova-counters-section {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    padding: 60px 0;
+    text-align: center;
+}
+
+.nova-counter-item {
+    padding: 30px 20px;
+}
+
+.nova-counter-item .nova-counter {
+    font-size: 3rem;
+    color: var(--nova-primary);
+    margin-bottom: 10px;
+}
+
+.nova-counter-item .nova-counter-label {
+    font-size: 1rem;
+    color: var(--nova-gray-600);
+}
+
+@media (max-width: 768px) {
+    .nova-counters-section {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    .nova-counter-item .nova-counter {
+        font-size: 2.5rem;
+    }
+}
+
+/* =============================================
+   SCROLL ANIMATIONS
+   ============================================= */
+.nova-animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nova-animate-on-scroll.animated {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.nova-animate-on-scroll.delay-1 { transition-delay: 0.1s; }
+.nova-animate-on-scroll.delay-2 { transition-delay: 0.2s; }
+.nova-animate-on-scroll.delay-3 { transition-delay: 0.3s; }
+.nova-animate-on-scroll.delay-4 { transition-delay: 0.4s; }
+
+/* Fade variations */
+.nova-animate-on-scroll.fade-left {
+    transform: translateX(-30px);
+}
+
+.nova-animate-on-scroll.fade-right {
+    transform: translateX(30px);
+}
+
+.nova-animate-on-scroll.fade-up {
+    transform: translateY(30px);
+}
+
+.nova-animate-on-scroll.zoom-in {
+    transform: scale(0.9);
+}
+
+.nova-animate-on-scroll.animated.fade-left,
+.nova-animate-on-scroll.animated.fade-right,
+.nova-animate-on-scroll.animated.fade-up {
+    transform: translate(0);
+}
+
+.nova-animate-on-scroll.animated.zoom-in {
+    transform: scale(1);
+}
+
+/* =============================================
+   TYPING EFFECT
+   ============================================= */
+.nova-typing {
+    visibility: hidden;
+}
+
+.nova-typing::after {
+    content: '|';
+    animation: blink 0.7s infinite;
+    margin-left: 2px;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* =============================================
+   FORM FOCUS EFFECTS
+   ============================================= */
+.nova-form-group.focused label {
+    color: var(--nova-primary);
+}
+
+.nova-form-group.focused input,
+.nova-form-group.focused textarea,
+.nova-form-group.focused select {
+    border-color: var(--nova-primary);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* =============================================
+   PARALLAX
+   ============================================= */
+.nova-parallax {
+    will-change: transform;
+}
+
+/* =============================================
+   RESPONSIVE
+   ============================================= */
+@media (max-width: 768px) {
+    #nova-back-to-top {
+        bottom: 85px;
+        right: 16px;
+        width: 44px;
+        height: 44px;
+    }
+    
+    #nova-back-to-top svg {
+        width: 20px;
+        height: 20px;
+    }
+    
+    #nova-whatsapp-btn {
+        bottom: 20px;
+        right: 16px;
+        width: 52px;
+        height: 52px;
+    }
+    
+    #nova-whatsapp-btn svg {
+        width: 26px;
+        height: 26px;
+    }
+    
+    #nova-whatsapp-btn .nova-wa-tooltip {
+        display: none;
+    }
+    
+    .nova-popup-content {
+        margin: 20px;
+        width: calc(100% - 40px);
+    }
+    
+    .nova-popup-header {
+        padding: 30px 20px 15px;
+    }
+    
+    .nova-popup-header h3 {
+        font-size: 1.5rem;
+    }
+    
+    .nova-popup-body {
+        padding: 0 20px 20px;
+    }
+}

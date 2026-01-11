@@ -1,0 +1,74 @@
+
+/* =============================================
+   FIX: Mejor contraste en formularios oscuros
+   ============================================= */
+.form-premium input::placeholder,
+.form-premium textarea::placeholder,
+.form-premium select::placeholder {
+    color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.form-premium input,
+.form-premium textarea,
+.form-premium select {
+    color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+}
+
+.form-premium label {
+    color: #F1F5F9 !important;
+}
+
+.form-premium .form-field small,
+.form-premium .form-hint,
+.form-premium .field-hint {
+    color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.form-premium .step-indicator span,
+.form-premium .progress-text {
+    color: #CBD5E1 !important;
+}
+
+.form-premium h2,
+.form-premium h3,
+.form-premium .section-title {
+    color: #ffffff !important;
+}
+
+/* Checkbox y radio labels */
+.form-premium .checkbox-group label,
+.form-premium .radio-group label,
+.form-premium input[type="checkbox"] + label,
+.form-premium input[type="radio"] + label {
+    color: #E2E8F0 !important;
+}
+
+/* Select dropdown */
+.form-premium select option {
+    background: #1E293B;
+    color: #ffffff;
+}
+
+/* Error messages legibles */
+.form-premium .error-message,
+.form-premium .field-error {
+    color: #FCA5A5 !important;
+}
+
+/* Success messages */
+.form-premium .success-message {
+    color: #86EFAC !important;
+}
+
+/* Budget slider labels */
+.form-premium .budget-labels,
+.form-premium .range-labels {
+    color: #CBD5E1 !important;
+}
+
+/* Info text */
+.form-premium .info-text,
+.form-premium .helper-text {
+    color: rgba(255, 255, 255, 0.7) !important;
+}

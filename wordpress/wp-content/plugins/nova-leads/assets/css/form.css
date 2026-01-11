@@ -1,0 +1,520 @@
+/**
+ * Nova Leads - Estilos del formulario frontend
+ */
+
+/* Variables */
+:root {
+    --nova-primary: #2563eb;
+    --nova-primary-dark: #1d4ed8;
+    --nova-accent: #f59e0b;
+    --nova-dark: #0f172a;
+    --nova-gray-50: #f9fafb;
+    --nova-gray-100: #f3f4f6;
+    --nova-gray-200: #e5e7eb;
+    --nova-gray-300: #d1d5db;
+    --nova-gray-400: #9ca3af;
+    --nova-gray-500: #6b7280;
+    --nova-gray-600: #4b5563;
+    --nova-gray-700: #374151;
+    --nova-success: #10b981;
+    --nova-error: #ef4444;
+    --nova-radius: 8px;
+    --nova-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --nova-transition: all 0.3s ease;
+}
+
+/* Reset base */
+.nova-lead-form * {
+    box-sizing: border-box;
+}
+
+/* Contenedor principal */
+.nova-lead-form {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.nova-lead-form--full {
+    max-width: 700px;
+}
+
+.nova-lead-form--cta {
+    max-width: 500px;
+}
+
+/* Título y descripción */
+.nova-lead-form__title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--nova-dark);
+    margin: 0 0 0.5rem 0;
+    text-align: center;
+}
+
+.nova-lead-form__description {
+    color: var(--nova-gray-600);
+    margin: 0 0 1.5rem 0;
+    text-align: center;
+}
+
+/* Honeypot */
+.nova-hp {
+    position: absolute;
+    left: -9999px;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+}
+
+/* Steps indicator */
+.nova-steps-indicator {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--nova-gray-200);
+}
+
+.nova-step {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    opacity: 0.5;
+    transition: var(--nova-transition);
+}
+
+.nova-step.active {
+    opacity: 1;
+}
+
+.nova-step.completed {
+    opacity: 1;
+}
+
+.nova-step.completed .nova-step__number {
+    background: var(--nova-success);
+    border-color: var(--nova-success);
+}
+
+.nova-step__number {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 2px solid var(--nova-gray-300);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--nova-gray-500);
+    transition: var(--nova-transition);
+}
+
+.nova-step.active .nova-step__number {
+    background: var(--nova-primary);
+    border-color: var(--nova-primary);
+    color: #fff;
+}
+
+.nova-step__label {
+    font-size: 0.875rem;
+    color: var(--nova-gray-600);
+}
+
+.nova-step.active .nova-step__label {
+    color: var(--nova-primary);
+    font-weight: 500;
+}
+
+/* Form steps content */
+.nova-form-step {
+    display: none;
+    animation: fadeIn 0.3s ease;
+}
+
+.nova-form-step.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Form rows */
+.nova-form-row {
+    margin-bottom: 1rem;
+}
+
+.nova-form-row--2col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.nova-form-row--inline {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.nova-form-row--inline .nova-form-group {
+    flex: 1;
+}
+
+/* Form groups */
+.nova-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+}
+
+.nova-form-group label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--nova-gray-700);
+}
+
+.nova-form-group label .required {
+    color: var(--nova-error);
+}
+
+/* Inputs */
+.nova-form-group input,
+.nova-form-group select,
+.nova-form-group textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border: 1px solid var(--nova-gray-300);
+    border-radius: var(--nova-radius);
+    background: #fff;
+    color: var(--nova-dark);
+    transition: var(--nova-transition);
+}
+
+.nova-form-group input:focus,
+.nova-form-group select:focus,
+.nova-form-group textarea:focus {
+    outline: none;
+    border-color: var(--nova-primary);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.nova-form-group input::placeholder,
+.nova-form-group textarea::placeholder {
+    color: var(--nova-gray-400);
+}
+
+.nova-form-group input.error,
+.nova-form-group select.error,
+.nova-form-group textarea.error {
+    border-color: var(--nova-error);
+}
+
+.nova-form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.nova-form-group select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236b7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 1rem;
+    padding-right: 2.5rem;
+}
+
+/* Navigation buttons */
+.nova-form-nav {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--nova-gray-200);
+}
+
+.nova-form-nav button:only-child {
+    margin-left: auto;
+}
+
+/* Buttons */
+.nova-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: var(--nova-radius);
+    cursor: pointer;
+    transition: var(--nova-transition);
+}
+
+.nova-btn svg {
+    width: 1rem;
+    height: 1rem;
+}
+
+.nova-btn--primary {
+    background: var(--nova-primary);
+    color: #fff;
+    width: 100%;
+}
+
+.nova-btn--primary:hover {
+    background: var(--nova-primary-dark);
+    transform: translateY(-1px);
+}
+
+.nova-btn--secondary {
+    background: var(--nova-primary);
+    color: #fff;
+}
+
+.nova-btn--secondary:hover {
+    background: var(--nova-primary-dark);
+}
+
+.nova-btn--outline {
+    background: transparent;
+    color: var(--nova-gray-600);
+    border: 1px solid var(--nova-gray-300);
+}
+
+.nova-btn--outline:hover {
+    background: var(--nova-gray-100);
+    border-color: var(--nova-gray-400);
+}
+
+/* Loading state */
+.nova-btn.loading .nova-btn__text {
+    display: none;
+}
+
+.nova-btn__loading {
+    display: none;
+}
+
+.nova-btn.loading .nova-btn__loading {
+    display: block;
+}
+
+.nova-spinner {
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Submit section */
+.nova-lead-form__submit {
+    margin-top: 1.5rem;
+}
+
+.nova-lead-form--cta .nova-lead-form__submit {
+    margin-top: 0;
+}
+
+.nova-lead-form--cta .nova-lead-form__submit .nova-btn {
+    width: auto;
+    white-space: nowrap;
+}
+
+/* CTA form inline layout */
+.nova-lead-form--cta form {
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-end;
+}
+
+.nova-lead-form--cta .nova-form-row--inline {
+    flex: 1;
+}
+
+/* Messages */
+.nova-lead-form__message {
+    margin-top: 1rem;
+    padding: 0.75rem 1rem;
+    border-radius: var(--nova-radius);
+    font-size: 0.875rem;
+    display: none;
+}
+
+.nova-lead-form__message.error {
+    display: block;
+    background: rgba(239, 68, 68, 0.1);
+    color: var(--nova-error);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.nova-lead-form__message.success {
+    display: block;
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--nova-success);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+/* Privacy */
+.nova-lead-form__privacy {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.nova-lead-form__privacy small {
+    color: var(--nova-gray-500);
+    font-size: 0.75rem;
+}
+
+.nova-lead-form__privacy a {
+    color: var(--nova-primary);
+    text-decoration: none;
+}
+
+.nova-lead-form__privacy a:hover {
+    text-decoration: underline;
+}
+
+/* Success state */
+.nova-lead-form__success {
+    text-align: center;
+    padding: 2rem;
+}
+
+.nova-success-icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 1rem;
+    background: rgba(16, 185, 129, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nova-success-icon svg {
+    width: 32px;
+    height: 32px;
+    color: var(--nova-success);
+}
+
+.nova-lead-form__success h4 {
+    font-size: 1.25rem;
+    color: var(--nova-dark);
+    margin: 0 0 0.5rem 0;
+}
+
+.nova-lead-form__success p {
+    color: var(--nova-gray-600);
+    margin: 0;
+}
+
+/* Field validation errors */
+.nova-field-error {
+    font-size: 0.75rem;
+    color: var(--nova-error);
+    margin-top: 0.25rem;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .nova-steps-indicator {
+        gap: 0.5rem;
+    }
+    
+    .nova-step__label {
+        display: none;
+    }
+    
+    .nova-form-row--2col {
+        grid-template-columns: 1fr;
+    }
+    
+    .nova-form-row--inline {
+        flex-direction: column;
+    }
+    
+    .nova-lead-form--cta form {
+        flex-direction: column;
+    }
+    
+    .nova-lead-form--cta .nova-lead-form__submit .nova-btn {
+        width: 100%;
+    }
+    
+    .nova-form-nav {
+        flex-direction: column;
+    }
+    
+    .nova-form-nav button:only-child {
+        margin-left: 0;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .nova-lead-form {
+        --nova-gray-50: #1f2937;
+        --nova-gray-100: #374151;
+        --nova-gray-200: #4b5563;
+        --nova-gray-300: #6b7280;
+        --nova-gray-700: #e5e7eb;
+    }
+    
+    .nova-lead-form.dark-mode .nova-form-group input,
+    .nova-lead-form.dark-mode .nova-form-group select,
+    .nova-lead-form.dark-mode .nova-form-group textarea {
+        background: var(--nova-gray-100);
+        border-color: var(--nova-gray-200);
+        color: #fff;
+    }
+}
+
+/* Animation for step transitions */
+.nova-form-step.slide-left {
+    animation: slideLeft 0.3s ease;
+}
+
+.nova-form-step.slide-right {
+    animation: slideRight 0.3s ease;
+}
+
+@keyframes slideLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideRight {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}

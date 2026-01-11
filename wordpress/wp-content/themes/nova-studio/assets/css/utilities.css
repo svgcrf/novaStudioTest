@@ -1,0 +1,367 @@
+/**
+ * Nova Studio - Global Utilities
+ * Clases reutilizables para consistencia en todo el sitio
+ */
+
+/* =============================================
+   SPACING UTILITIES
+   ============================================= */
+.nova-mt-0 { margin-top: 0; }
+.nova-mt-xs { margin-top: var(--nova-spacing-xs); }
+.nova-mt-sm { margin-top: var(--nova-spacing-sm); }
+.nova-mt-md { margin-top: var(--nova-spacing-md); }
+.nova-mt-lg { margin-top: var(--nova-spacing-lg); }
+.nova-mt-xl { margin-top: var(--nova-spacing-xl); }
+.nova-mt-2xl { margin-top: var(--nova-spacing-2xl); }
+
+.nova-mb-0 { margin-bottom: 0; }
+.nova-mb-xs { margin-bottom: var(--nova-spacing-xs); }
+.nova-mb-sm { margin-bottom: var(--nova-spacing-sm); }
+.nova-mb-md { margin-bottom: var(--nova-spacing-md); }
+.nova-mb-lg { margin-bottom: var(--nova-spacing-lg); }
+.nova-mb-xl { margin-bottom: var(--nova-spacing-xl); }
+.nova-mb-2xl { margin-bottom: var(--nova-spacing-2xl); }
+
+.nova-py-sm { padding-top: var(--nova-spacing-sm); padding-bottom: var(--nova-spacing-sm); }
+.nova-py-md { padding-top: var(--nova-spacing-md); padding-bottom: var(--nova-spacing-md); }
+.nova-py-lg { padding-top: var(--nova-spacing-lg); padding-bottom: var(--nova-spacing-lg); }
+.nova-py-xl { padding-top: var(--nova-spacing-xl); padding-bottom: var(--nova-spacing-xl); }
+
+.nova-px-sm { padding-left: var(--nova-spacing-sm); padding-right: var(--nova-spacing-sm); }
+.nova-px-md { padding-left: var(--nova-spacing-md); padding-right: var(--nova-spacing-md); }
+.nova-px-lg { padding-left: var(--nova-spacing-lg); padding-right: var(--nova-spacing-lg); }
+
+/* =============================================
+   FLEXBOX UTILITIES
+   ============================================= */
+.nova-flex { display: flex; }
+.nova-flex-col { flex-direction: column; }
+.nova-flex-wrap { flex-wrap: wrap; }
+.nova-items-center { align-items: center; }
+.nova-items-start { align-items: flex-start; }
+.nova-items-end { align-items: flex-end; }
+.nova-justify-center { justify-content: center; }
+.nova-justify-between { justify-content: space-between; }
+.nova-justify-around { justify-content: space-around; }
+.nova-gap-xs { gap: var(--nova-spacing-xs); }
+.nova-gap-sm { gap: var(--nova-spacing-sm); }
+.nova-gap-md { gap: var(--nova-spacing-md); }
+.nova-gap-lg { gap: var(--nova-spacing-lg); }
+.nova-gap-xl { gap: var(--nova-spacing-xl); }
+
+/* =============================================
+   GRID UTILITIES
+   ============================================= */
+.nova-grid { display: grid; }
+.nova-grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+.nova-grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+.nova-grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+
+@media (max-width: 1024px) {
+    .nova-grid-cols-3 { grid-template-columns: repeat(2, 1fr); }
+    .nova-grid-cols-4 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+    .nova-grid-cols-2,
+    .nova-grid-cols-3,
+    .nova-grid-cols-4 { grid-template-columns: 1fr; }
+}
+
+/* =============================================
+   TEXT UTILITIES
+   ============================================= */
+.nova-text-center { text-align: center; }
+.nova-text-left { text-align: left; }
+.nova-text-right { text-align: right; }
+
+.nova-text-xs { font-size: var(--nova-text-xs); }
+.nova-text-sm { font-size: var(--nova-text-sm); }
+.nova-text-base { font-size: var(--nova-text-base); }
+.nova-text-lg { font-size: var(--nova-text-lg); }
+.nova-text-xl { font-size: var(--nova-text-xl); }
+.nova-text-2xl { font-size: var(--nova-text-2xl); }
+.nova-text-3xl { font-size: var(--nova-text-3xl); }
+
+.nova-font-normal { font-weight: 400; }
+.nova-font-medium { font-weight: 500; }
+.nova-font-semibold { font-weight: 600; }
+.nova-font-bold { font-weight: 700; }
+.nova-font-extrabold { font-weight: 800; }
+
+.nova-text-primary { color: var(--nova-primary); }
+.nova-text-accent { color: var(--nova-accent); }
+.nova-text-dark { color: var(--nova-dark); }
+.nova-text-gray { color: var(--nova-gray-500); }
+.nova-text-light { color: var(--nova-gray-300); }
+.nova-text-white { color: var(--nova-white); }
+
+.nova-uppercase { text-transform: uppercase; }
+.nova-capitalize { text-transform: capitalize; }
+.nova-tracking-wide { letter-spacing: 0.05em; }
+
+/* =============================================
+   BACKGROUND UTILITIES
+   ============================================= */
+.nova-bg-primary { background-color: var(--nova-primary); }
+.nova-bg-accent { background-color: var(--nova-accent); }
+.nova-bg-dark { background-color: var(--nova-dark); }
+.nova-bg-light { background-color: var(--nova-light); }
+.nova-bg-white { background-color: var(--nova-white); }
+.nova-bg-transparent { background-color: transparent; }
+
+.nova-bg-gradient-primary {
+    background: linear-gradient(135deg, var(--nova-primary) 0%, var(--nova-primary-dark) 100%);
+}
+
+.nova-bg-gradient-accent {
+    background: linear-gradient(135deg, var(--nova-accent) 0%, var(--nova-accent-dark) 100%);
+}
+
+/* =============================================
+   BORDER UTILITIES
+   ============================================= */
+.nova-border { border: 1px solid var(--nova-gray-300); }
+.nova-border-light { border: 1px solid var(--nova-gray-100); }
+.nova-border-primary { border: 2px solid var(--nova-primary); }
+
+.nova-rounded-sm { border-radius: var(--nova-radius-sm); }
+.nova-rounded-md { border-radius: var(--nova-radius-md); }
+.nova-rounded-lg { border-radius: var(--nova-radius-lg); }
+.nova-rounded-xl { border-radius: var(--nova-radius-xl); }
+.nova-rounded-full { border-radius: var(--nova-radius-full); }
+
+/* =============================================
+   SHADOW UTILITIES
+   ============================================= */
+.nova-shadow-sm { box-shadow: var(--nova-shadow-sm); }
+.nova-shadow-md { box-shadow: var(--nova-shadow-md); }
+.nova-shadow-lg { box-shadow: var(--nova-shadow-lg); }
+.nova-shadow-xl { box-shadow: var(--nova-shadow-xl); }
+.nova-shadow-none { box-shadow: none; }
+
+/* =============================================
+   DISPLAY UTILITIES
+   ============================================= */
+.nova-block { display: block; }
+.nova-inline-block { display: inline-block; }
+.nova-inline { display: inline; }
+.nova-hidden { display: none; }
+
+@media (max-width: 768px) {
+    .nova-hidden-mobile { display: none !important; }
+    .nova-show-mobile { display: block !important; }
+}
+
+@media (min-width: 769px) {
+    .nova-hidden-desktop { display: none !important; }
+    .nova-show-desktop { display: block !important; }
+}
+
+/* =============================================
+   WIDTH/HEIGHT UTILITIES
+   ============================================= */
+.nova-w-full { width: 100%; }
+.nova-w-auto { width: auto; }
+.nova-h-full { height: 100%; }
+.nova-h-auto { height: auto; }
+.nova-max-w-sm { max-width: 480px; }
+.nova-max-w-md { max-width: 640px; }
+.nova-max-w-lg { max-width: 800px; }
+.nova-max-w-xl { max-width: 1024px; }
+
+/* =============================================
+   POSITION UTILITIES
+   ============================================= */
+.nova-relative { position: relative; }
+.nova-absolute { position: absolute; }
+.nova-fixed { position: fixed; }
+.nova-sticky { position: sticky; }
+
+/* =============================================
+   OVERFLOW UTILITIES
+   ============================================= */
+.nova-overflow-hidden { overflow: hidden; }
+.nova-overflow-auto { overflow: auto; }
+.nova-overflow-visible { overflow: visible; }
+
+/* =============================================
+   TRANSITION UTILITIES
+   ============================================= */
+.nova-transition { transition: all var(--nova-transition-base); }
+.nova-transition-fast { transition: all var(--nova-transition-fast); }
+.nova-transition-slow { transition: all var(--nova-transition-slow); }
+
+/* =============================================
+   CURSOR UTILITIES
+   ============================================= */
+.nova-cursor-pointer { cursor: pointer; }
+.nova-cursor-default { cursor: default; }
+
+/* =============================================
+   OPACITY UTILITIES
+   ============================================= */
+.nova-opacity-0 { opacity: 0; }
+.nova-opacity-50 { opacity: 0.5; }
+.nova-opacity-75 { opacity: 0.75; }
+.nova-opacity-100 { opacity: 1; }
+
+/* =============================================
+   Z-INDEX UTILITIES
+   ============================================= */
+.nova-z-0 { z-index: 0; }
+.nova-z-10 { z-index: 10; }
+.nova-z-20 { z-index: 20; }
+.nova-z-50 { z-index: 50; }
+.nova-z-100 { z-index: 100; }
+
+/* =============================================
+   REUSABLE CARD COMPONENT
+   ============================================= */
+.nova-card {
+    background: var(--nova-white);
+    border-radius: var(--nova-radius-xl);
+    padding: var(--nova-spacing-xl);
+    box-shadow: var(--nova-shadow-md);
+    border: 1px solid var(--nova-gray-100);
+    transition: all var(--nova-transition-base);
+}
+
+.nova-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--nova-shadow-xl);
+}
+
+.nova-card-dark {
+    background: var(--nova-gray-900);
+    border-color: var(--nova-gray-700);
+}
+
+/* =============================================
+   REUSABLE BADGE COMPONENT
+   ============================================= */
+.nova-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.375rem 0.875rem;
+    font-size: var(--nova-text-xs);
+    font-weight: 600;
+    border-radius: var(--nova-radius-full);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.nova-badge-primary {
+    background: rgba(37, 99, 235, 0.1);
+    color: var(--nova-primary);
+}
+
+.nova-badge-accent {
+    background: rgba(245, 158, 11, 0.1);
+    color: var(--nova-accent-dark);
+}
+
+.nova-badge-success {
+    background: rgba(16, 185, 129, 0.1);
+    color: #059669;
+}
+
+/* =============================================
+   REUSABLE ICON BOX COMPONENT
+   ============================================= */
+.nova-icon-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: var(--nova-radius-lg);
+    background: linear-gradient(135deg, var(--nova-primary) 0%, var(--nova-primary-light) 100%);
+    color: var(--nova-white);
+    flex-shrink: 0;
+}
+
+.nova-icon-box-lg {
+    width: 64px;
+    height: 64px;
+}
+
+.nova-icon-box-sm {
+    width: 40px;
+    height: 40px;
+}
+
+.nova-icon-box svg {
+    width: 24px;
+    height: 24px;
+}
+
+.nova-icon-box-lg svg {
+    width: 32px;
+    height: 32px;
+}
+
+.nova-icon-box-sm svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* =============================================
+   DIVIDER COMPONENT
+   ============================================= */
+.nova-divider {
+    height: 1px;
+    background: var(--nova-gray-200);
+    border: none;
+    margin: var(--nova-spacing-lg) 0;
+}
+
+.nova-divider-dark {
+    background: var(--nova-gray-700);
+}
+
+/* =============================================
+   FOCUS STATES FOR ACCESSIBILITY
+   ============================================= */
+.nova-btn:focus-visible,
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid var(--nova-primary);
+    outline-offset: 2px;
+}
+
+/* =============================================
+   SMOOTH SCROLLING
+   ============================================= */
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* =============================================
+   PRINT STYLES
+   ============================================= */
+@media print {
+    .nova-hidden-print { display: none !important; }
+    
+    #nova-whatsapp-btn,
+    #nova-back-to-top,
+    #nova-scroll-progress {
+        display: none !important;
+    }
+}

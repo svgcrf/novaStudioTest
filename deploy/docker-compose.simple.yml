@@ -1,0 +1,52 @@
+version: '3.8'
+
+# Versión simple sin SSL - Para pruebas iniciales con IP
+services:
+  wordpress:
+    image: wordpress:latest
+    container_name: nova_wordpress
+    restart: always
+    ports:
+      - "80:80"
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: NovaStudio2024!
+      WORDPRESS_DB_NAME: wordpress
+      WORDPRESS_TABLE_PREFIX: wp_
+    volumes:
+      - wordpress_data:/var/www/html
+      - ./wordpress/wp-content/themes/nova-studio:/var/www/html/wp-content/themes/nova-studio
+      - ./wordpress/wp-content/plugins/nova-leads-simple.php:/var/www/html/wp-content/plugins/nova-leads-simple.php
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - nova_network
+
+  db:
+    image: mariadb:10.6
+    container_name: nova_db
+    restart: always
+    environment:
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: NovaStudio2024!
+      MYSQL_ROOT_PASSWORD: NovaRoot2024!
+    volumes:
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-pNovaRoot2024!"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - nova_network
+
+volumes:
+  wordpress_data:
+  db_data:
+
+networks:
+  nova_network:
+    driver: bridge
